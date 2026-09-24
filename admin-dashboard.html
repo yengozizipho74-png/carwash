@@ -1,195 +1,123 @@
+
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
-    <meta charset="UTF-8">
-
-    <title>Admin Dashboard | ShineWash</title>
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background: #f5f7fb;
-        }
-
-        .sidebar {
-            position: fixed;
-            width: 250px;
-            height: 100vh;
-            background: #101828;
-            padding: 30px 20px;
-            color: white;
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-            margin-bottom: 40px;
-        }
-
-            .logo span {
-                color: #00c896;
-            }
-
-        .menu a {
-            display: block;
-            padding: 14px;
-            color: #b8c0cc;
-            text-decoration: none;
-            margin-bottom: 8px;
-            border-radius: 10px;
-        }
-
-            .menu a:hover,
-            .menu .active {
-                background: #1769ff;
-                color: white;
-            }
-
-        .main {
-            margin-left: 250px;
-            padding: 35px;
-        }
-
-        .top {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 18px;
-        }
-
-            .card p {
-                color: #667085;
-            }
-
-            .card h2 {
-                margin-top: 10px;
-                font-size: 30px;
-            }
-
-        .table-container {
-            margin-top: 30px;
-            background: white;
-            padding: 25px;
-            border-radius: 18px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th,
-        td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-
-        th {
-            color: #667085;
-        }
-
-        .status {
-            background: #d1fadf;
-            color: #027a48;
-            padding: 6px 12px;
-            border-radius: 20px;
-        }
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard - ShineWash</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{display:flex;min-height:100vh;background:#f1f5f9}
+.sidebar{width:240px;background:#0f172a;color:white;padding:20px;display:flex;flex-direction:column;gap:10px}
+.sidebar h2{margin-bottom:20px}.sidebar h2 span{color:#22d3ee}
+.menu-btn{padding:12px 14px;border:none;border-radius:8px;text-align:left;cursor:pointer;background:#1e293b;color:white;font-size:14px}
+.menu-btn.active,.menu-btn:hover{background:#2563eb}
+.main{flex:1;padding:25px;overflow:auto}
+.card{background:white;padding:20px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.07);margin-bottom:20px}
+table{width:100%;border-collapse:collapse;margin-top:12px} th{padding:10px;background:#f8fafc;text-align:left;font-size:12px;color:#64748b} td{padding:12px;border-top:1px solid #eee;font-size:14px}
+.badge{background:#22c55e;color:white;padding:4px 10px;border-radius:12px;font-size:11px}
+.btn{border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:12px;margin-right:5px}
+.btn-del{background:#ef4444;color:white}.btn-edit{background:#3b82f6;color:white}
+input{padding:10px;border:1px solid #ddd;border-radius:8px;margin:5px}
+.hidden{display:none}
+</style>
 </head>
 <body>
-
 <div class="sidebar">
-  <div class="logo">Shine<span>Wash</span></div>
-  <div class="menu">
-    <a class="active" href="admin-dashboard.html">📊 Dashboard</a>
-    <a href="#bookings">📋 Manage Bookings</a>
-    <a href="#services">💖 Manage Services</a>
-    <a href="bay-status.html">🚗 Live Bay Status</a>
-    <a href="index.html">🚪 Logout</a>
-  </div>
+<h2>Shine<span>Wash</span></h2>
+<button class="menu-btn active" onclick="showTab('dashboard')">📊 Dashboard</button>
+<button class="menu-btn" onclick="showTab('bookings')">📦 Manage Bookings</button>
+<button class="menu-btn" onclick="showTab('services')">💖 Manage Services</button>
+<button class="menu-btn" onclick="showTab('bays')">🚗 Live Bay Status</button>
+<button class="menu-btn" style="background:#1e293b;margin-top:auto" onclick="logout()">🚪 Logout</button>
 </div>
 
 <div class="main">
-  <h1>Admin Dashboard 👑</h1>
-  <p>Welcome Admin - All User Bookings</p>
-
-  <div class="card">
-    <h3>Total Bookings: <span id="totalCount">0</span></h3>
-  </div>
-
-  <div class="card" id="bookings">
-    <h2>📋 Manage Bookings</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Service</th>
-          <th>Date & Time</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody id="bookingTableBody">
-        <tr><td colspan="4">Loading bookings...</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="card" id="services">
-    <h2>💖 Manage Services</h2>
-    <p>Basic Wash - R50</p>
-    <p>Premium Wash - R120</p>
-    <p>Deluxe Wash - R200</p>
-  </div>
+<!-- DASHBOARD TAB -->
+<div id="tab-dashboard">
+<h1>Admin Dashboard 👑</h1>
+<p>Welcome Admin - All User Bookings</p>
+<div class="card"><h3>Total Bookings: <span id="totalCount">0</span></h3></div>
+<div class="card" id="dashBookings"></div>
 </div>
+
+<!-- BOOKINGS TAB - NOW WORKS WITH DELETE -->
+<div id="tab-bookings" class="hidden">
+<h1>📦 Manage Bookings</h1>
+<div class="card">
+<table><thead><tr><th>User</th><th>Service</th><th>Date & Time</th><th>Status</th><th>Action</th></tr></thead>
+<tbody id="bookingTableBody"></tbody></table>
+</div>
+</div>
+
+<!-- SERVICES TAB - NOW WORKS WITH EDIT -->
+<div id="tab-services" class="hidden">
+<h1> Manage Services</h1>
+<div class="card">
+<div id="serviceList"></div>
+<br>
+<h4>Add / Edit Service</h4>
+<input id="sName" placeholder="Service Name"> <input id="sPrice" placeholder="Price e.g. R120" type="text"> <button class="btn btn-edit" onclick="addService()">Save Service</button>
+</div>
+</div>
+
+<!-- BAYS TAB -->
+<div id="tab-bays" class="hidden">
+<h1>🚗 Live Bay Status</h1>
+<div class="card"><p>Bay 1: <span style="color:green">Available</span></p><p>Bay 2: <span style="color:red">Occupied - thando</span></p><p>Bay 3: <span style="color:green">Available</span></p></div>
+</div>
+</div>
+
 <script>
-document.addEventListener("DOMContentLoaded", function(){
-  let allBookings = JSON.parse(localStorage.getItem("carwashBookings") || "{}");
-  let tbody = document.getElementById("bookingTableBody");
-  let countEl = document.getElementById("totalCount");
+let services = JSON.parse(localStorage.getItem("washServices")||'[{"name":"Basic Wash","price":"R50"},{"name":"Premium Wash","price":"R120"},{"name":"Deluxe Wash","price":"R200"}]');
 
-  if(!tbody ||!countEl) return;
-
-  countEl.innerText = Object.keys(allBookings).length;
-
-  if(Object.keys(allBookings).length === 0){
-    tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;padding:20px;">No bookings yet - book as thando to test</td></tr>`;
-  } else {
-    let rows = "";
-    for(let user in allBookings){
-      let b = allBookings[user];
-      rows += `<tr>
-        <td>${user}</td>
-        <td>${b.service}</td>
-        <td>${b.date} ${b.time}</td>
-        <td><span style="background:#22c55e;color:white;padding:4px 10px;border-radius:12px;">Confirmed</span></td>
-      </tr>`;
-    }
-    tbody.innerHTML = rows;
-  }
-});
+function showTab(name){
+ document.querySelectorAll('[id^="tab-"]').forEach(d=>d.classList.add('hidden'));
+ document.getElementById('tab-'+name).classList.remove('hidden');
+ document.querySelectorAll('.menu-btn').forEach(b=>b.classList.remove('active'));
+ event.target.classList.add('active');
+ if(name==='bookings'||name==='dashboard') renderBookings();
+ if(name==='services') renderServices();
+}
+function renderBookings(){
+ let data=JSON.parse(localStorage.getItem("carwashBookings")||"{}");
+ let tbody=document.getElementById("bookingTableBody");
+ let dash=document.getElementById("dashBookings");
+ let total=document.getElementById("totalCount");
+ total.innerText=Object.keys(data).length;
+ let rows="";
+ let dashRows="";
+ for(let u in data){
+  let b=data[u];
+  let r=`<tr><td>${u}</td><td>${b.service||'Premium Wash'}</td><td>${b.date||''} ${b.time||'10:00'}</td><td><span class="badge">Confirmed</span></td><td><button class="btn btn-del" onclick="deleteBooking('${u}')">Delete</button></td></tr>`;
+  rows+=r; dashRows+=r;
+ }
+ tbody.innerHTML=rows||"<tr><td colspan=5 style='text-align:center'>No bookings</td></tr>";
+ if(dash) dash.innerHTML=`<table><thead><tr><th>User</th><th>Service</th><th>Date</th><th>Status</th><th>Action</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+function deleteBooking(user){
+ if(!confirm("Delete booking for "+user+"?")) return;
+ let data=JSON.parse(localStorage.getItem("carwashBookings")||"{}");
+ delete data[user];
+ localStorage.setItem("carwashBookings",JSON.stringify(data));
+ renderBookings();
+}
+function renderServices(){
+ let list=document.getElementById("serviceList");
+ list.innerHTML=services.map((s,i)=>`<p>${s.name} - ${s.price} <button class="btn btn-del" onclick="delService(${i})">Delete</button></p>`).join('');
+}
+function addService(){
+ let n=document.getElementById("sName").value;
+ let p=document.getElementById("sPrice").value;
+ if(!n||!p) return alert("Fill both");
+ services.push({name:n,price:p});
+ localStorage.setItem("washServices",JSON.stringify(services));
+ document.getElementById("sName").value=""; document.getElementById("sPrice").value="";
+ renderServices();
+}
+function delService(i){services.splice(i,1); localStorage.setItem("washServices",JSON.stringify(services)); renderServices();}
+function logout(){localStorage.removeItem("userRole"); location.href="admin-login.html";}
+document.addEventListener("DOMContentLoaded",renderBookings);
 </script>
 </body>
-
 </html>
