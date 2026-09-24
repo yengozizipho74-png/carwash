@@ -206,7 +206,7 @@
             </div>
 
             <div class="profile">
-                👤 Sfundo
+                <span id="userName">Loading...</span>
             </div>
 
         </div>
@@ -277,6 +277,11 @@
 
     </div>
     <script src="dashboard.js"></script>
+
+    <script>
+  const savedName = localStorage.getItem("userName") || localStorage.getItem("name") || "Guest";
+  document.getElementById("userName").textContent = savedName;
+</script>
 
 </body>
 </html>
