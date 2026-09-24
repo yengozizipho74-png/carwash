@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | ShineWash</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1769ff, #00c896);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            width: 420px;
+            background: white;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            color: #1769ff;
+            margin-bottom: 10px;
+        }
+
+            .logo span {
+                color: #00c896;
+            }
+
+        .subtitle {
+            text-align: center;
+            color: #667085;
+            margin-bottom: 35px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d0d5dd;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+        }
+
+            input:focus {
+                border-color: #1769ff;
+                box-shadow: 0 0 0 3px rgba(23,105,255,0.1);
+            }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #1769ff;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background: #0d55d6;
+            }
+
+        .extra {
+            text-align: center;
+            margin-top: 25px;
+            color: #667085;
+        }
+
+            .extra a {
+                color: #1769ff;
+                text-decoration: none;
+                font-weight: bold;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="logo">
+            Shine<span>Wash</span>
+        </div>
+
+        <p class="subtitle">
+            Welcome back! Login to continue.
+        </p>
+
+        <form onsubmit="loginUser(event)">
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email"
+                       id="email"
+                       placeholder="you@example.com"
+                       required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password"
+                       id="password"
+                       placeholder="Enter your password"
+                       required>
+            </div>
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+        <div class="extra">
+            Don't have an account?
+            <a href="login.html">Create one</a>
+        </div>
+
+    </div>
+    
+        <script src="sign.js"></script>
+
+</body>
+</html>

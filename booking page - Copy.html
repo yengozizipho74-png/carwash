@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book a Wash | ShineWash</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #eef5ff, #eafff8);
+            min-height: 100vh;
+            padding: 50px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+            .header h1 {
+                font-size: 38px;
+                color: #172033;
+            }
+
+            .header p {
+                color: #667085;
+                margin-top: 10px;
+            }
+
+        .booking-card {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 9px;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d0d5dd;
+            border-radius: 10px;
+            font-size: 15px;
+        }
+
+        .row {
+            display: flex;
+            gap: 20px;
+        }
+
+            .row .form-group {
+                flex: 1;
+            }
+
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .time {
+            padding: 13px;
+            border: 1px solid #d0d5dd;
+            border-radius: 9px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+            .time:hover,
+            .time.selected {
+                background: #1769ff;
+                color: white;
+                border-color: #1769ff;
+            }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            background: #1769ff;
+            border: none;
+            color: white;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background: #0d55d6;
+            }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <h1>Book Your Wash 🚘</h1>
+
+            <p>
+                Choose your service, date and preferred time.
+            </p>
+
+        </div>
+
+        <div class="booking-card">
+
+            <form onsubmit="submitBooking(event)">
+
+                <div class="form-group">
+
+                    <label>Choose Service</label>
+
+                    <select required>
+
+                        <option value="">
+                            Select a service
+                        </option>
+
+                        <option>
+                            Basic Wash — R80
+                        </option>
+
+                        <option>
+                            Premium Wash — R150
+                        </option>
+
+                        <option>
+                            Full Detail — R250
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group">
+
+                        <label>Date</label>
+
+                        <input type="date"
+                               required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Vehicle</label>
+
+                        <input
+                        type="text"
+
+                        id="vehicle"
+
+                        name="vehicle"
+
+                        placeholder="e.g. Toyota Corolla"
+
+                        required>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Select Time</label>
+
+                    <div class="time-slots">
+
+                        <div class="time" onclick="selectTime(this)">
+                            09:00
+                        </div>
+
+                        <div class="time" onclick="selectTime(this)">
+                            10:00
+                        </div>
+
+                        <div class="time" onclick="selectTime(this)">
+                            11:00
+                        </div>
+
+                        <div class="time" onclick="selectTime(this)">
+                            12:00
+                        </div>
+
+                        <div class="time" onclick="selectTime(this)">
+                            13:00
+                        </div>
+
+                        <div class="time" onclick="selectTime(this)">
+                            14:00
+                        </div>
+
+                        <div class="time" onclick="selectTime(this)">
+                            15:00
+                        </div>
+
+                        <div class="time" onclick="selectTime(this)">
+                            16:00
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <button type="submit">
+                    Confirm Booking
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    
+<script src="booking.js"></script>
+
+    
+
+</body>
+</html>

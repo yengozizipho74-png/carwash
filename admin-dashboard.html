@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Admin Dashboard | ShineWash</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+        }
+
+        .sidebar {
+            position: fixed;
+            width: 250px;
+            height: 100vh;
+            background: #101828;
+            padding: 30px 20px;
+            color: white;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+            .logo span {
+                color: #00c896;
+            }
+
+        .menu a {
+            display: block;
+            padding: 14px;
+            color: #b8c0cc;
+            text-decoration: none;
+            margin-bottom: 8px;
+            border-radius: 10px;
+        }
+
+            .menu a:hover,
+            .menu .active {
+                background: #1769ff;
+                color: white;
+            }
+
+        .main {
+            margin-left: 250px;
+            padding: 35px;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+        }
+
+            .card p {
+                color: #667085;
+            }
+
+            .card h2 {
+                margin-top: 10px;
+                font-size: 30px;
+            }
+
+        .table-container {
+            margin-top: 30px;
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            color: #667085;
+        }
+
+        .status {
+            background: #d1fadf;
+            color: #027a48;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <div class="logo">
+            Shine<span>Wash</span>
+        </div>
+
+        <div class="menu">
+
+            <a class="active" href="admin-dashboard.html">
+                📊 Dashboard
+            </a>
+
+            <a href="#">
+                📋 Manage Bookings
+            </a>
+
+            <a href="#">
+                🧼 Manage Services
+            </a>
+
+            <a href="bay-status.html">
+                🚘 Live Bay Status
+            </a>
+
+            <a href="index.html">
+                🚪 Logout
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="main">
+
+        <div class="top">
+
+            <div>
+
+                <h1>Admin Dashboard</h1>
+
+                <p>
+                    Manage your car wash operations.
+                </p>
+
+            </div>
+
+            <strong>
+                Admin 👤
+            </strong>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <p>Total Bookings</p>
+                <h2>128</h2>
+            </div>
+
+            <div class="card">
+                <p>Today's Bookings</p>
+                <h2>24</h2>
+            </div>
+
+            <div class="card">
+                <p>Available Bays</p>
+                <h2>3</h2>
+            </div>
+
+            <div class="card">
+                <p>Customers</p>
+                <h2>86</h2>
+            </div>
+
+        </div>
+
+        <div class="table-container">
+
+            <h2>Recent Bookings</h2>
+
+            <br>
+
+            <table>
+
+                <tr>
+                    <th>Customer</th>
+                    <th>Service</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                </tr>
+
+                <tr>
+                    <td>Sfundo Makaza</td>
+                    <td>Premium Wash</td>
+                    <td>25 Sep</td>
+                    <td>14:00</td>
+                    <td>
+                        <span class="status">
+                            Confirmed
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>John Smith</td>
+                    <td>Basic Wash</td>
+                    <td>25 Sep</td>
+                    <td>15:00</td>
+                    <td>
+                        <span class="status">
+                            Confirmed
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Thandi M</td>
+                    <td>Full Detail</td>
+                    <td>25 Sep</td>
+                    <td>16:00</td>
+                    <td>
+                        <span class="status">
+                            Confirmed
+                        </span>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+    <script src="admin"></script>
+
+</body>
+</html>

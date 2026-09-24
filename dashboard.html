@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | ShineWash</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #172033;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 250px;
+            height: 100vh;
+            background: #101828;
+            padding: 30px 20px;
+            color: white;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 45px;
+            padding-left: 10px;
+        }
+
+            .logo span {
+                color: #00c896;
+            }
+
+        .menu a {
+            display: block;
+            color: #b8c0cc;
+            text-decoration: none;
+            padding: 15px;
+            margin-bottom: 8px;
+            border-radius: 10px;
+        }
+
+            .menu a:hover,
+            .menu .active {
+                background: #1769ff;
+                color: white;
+            }
+
+        .main {
+            margin-left: 250px;
+            padding: 35px;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+        }
+
+            .top h1 {
+                font-size: 32px;
+            }
+
+        .profile {
+            background: white;
+            padding: 12px 18px;
+            border-radius: 12px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+            .card h3 {
+                color: #667085;
+                font-size: 14px;
+            }
+
+            .card strong {
+                display: block;
+                font-size: 30px;
+                margin-top: 10px;
+            }
+
+        .blue {
+            color: #1769ff;
+        }
+
+        .green {
+            color: #00a879;
+        }
+
+        .orange {
+            color: #f79009;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+
+        .panel {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+        }
+
+            .panel h2 {
+                margin-bottom: 20px;
+            }
+
+        .booking {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .status {
+            background: #d1fadf;
+            color: #027a48;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .book-btn {
+            display: inline-block;
+            margin-top: 20px;
+            background: #1769ff;
+            color: white;
+            padding: 13px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <div class="logo">
+            Shine<span>Wash</span>
+        </div>
+
+        <div class="menu">
+
+            <a class="active" href="dashboard.html">
+                🏠 Dashboard
+            </a>
+
+            <a href="booking.html">
+                📅 Book a Wash
+            </a>
+
+            <a href="my-bookings.html">
+                📋 My Bookings
+            </a>
+
+            <a href="bay-status.html">
+                🚘 Live Bay Status
+            </a>
+
+            <a href="login.html">
+                🚪 Logout
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="main">
+
+        <div class="top">
+
+            <div>
+                <h1>Good afternoon 👋</h1>
+                <p>Welcome back to ShineWash.</p>
+            </div>
+
+            <div class="profile">
+                👤 Sfundo
+            </div>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Upcoming Booking</h3>
+                <strong class="blue">1</strong>
+            </div>
+
+            <div class="card">
+                <h3>Total Washes</h3>
+                <strong class="green">12</strong>
+            </div>
+
+            <div class="card">
+                <h3>Available Bays</h3>
+                <strong class="orange">3</strong>
+            </div>
+
+        </div>
+
+        <div class="content">
+
+            <div class="panel">
+
+                <h2>Upcoming Booking</h2>
+
+                <div class="booking">
+
+                    <div>
+                        <strong>Premium Wash</strong>
+                        <p>25 September 2026 • 14:00</p>
+                    </div>
+
+                    <span class="status">
+                        Confirmed
+                    </span>
+
+                </div>
+
+                <a class="book-btn" href="booking.html">
+                    + New Booking
+                </a>
+
+            </div>
+
+            <div class="panel">
+
+                <h2>Live Bays</h2>
+
+                <p>🟢 Bay 1 — Free</p>
+                <br>
+                <p>🔴 Bay 2 — Busy</p>
+                <br>
+                <p>🟢 Bay 3 — Free</p>
+                <br>
+                <p>🟢 Bay 4 — Free</p>
+                <br>
+                <p>🔴 Bay 5 — Free</p>
+                <br>
+                <p>🔴 Bay 6 — Free</p>
+
+            </div>
+
+        </div>
+
+    </div>
+    <script src="dashboard.js"></script>
+
+</body>
+</html>

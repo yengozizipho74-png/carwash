@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>My Bookings | ShineWash</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .search {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .booking-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .status {
+            background: #d1fadf;
+            color: #027a48;
+            padding: 7px 13px;
+            border-radius: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <h1>My Bookings</h1>
+
+            <p>
+                View and search your previous bookings.
+            </p>
+
+        </div>
+
+        <input class="search"
+               id="search"
+               onkeyup="searchBookings()"
+               placeholder="Search bookings...">
+
+        <div id="bookings">
+
+            <div class="booking-card">
+
+                <div>
+                    <h3>Premium Wash</h3>
+                    <p>25 September 2026 • 14:00</p>
+                </div>
+
+                <span class="status">
+                    Confirmed
+                </span>
+
+            </div>
+
+            <div class="booking-card">
+
+                <div>
+                    <h3>Basic Wash</h3>
+                    <p>10 September 2026 • 11:00</p>
+                </div>
+
+                <span class="status">
+                    Completed
+                </span>
+
+            </div>
+
+            <div class="booking-card">
+
+                <div>
+                    <h3>Full Detail</h3>
+                    <p>02 September 2026 • 15:00</p>
+                </div>
+
+                <span class="status">
+                    Completed
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="view my bookings.js"></script>
+
+</body>
+</html>

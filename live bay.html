@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Live Bay Status | ShineWash</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            padding: 50px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+            .header h1 {
+                font-size: 40px;
+            }
+
+            .header p {
+                color: #667085;
+                margin-top: 10px;
+            }
+
+        .bays {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .bay {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+
+        .car {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .status {
+            padding: 9px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .free {
+            background: #d1fadf;
+            color: #027a48;
+        }
+
+        .busy {
+            background: #fee4e2;
+            color: #b42318;
+        }
+
+        .live {
+            margin-top: 40px;
+            text-align: center;
+            color: #667085;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #00c896;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <h1>Live Bay Status 🚘</h1>
+
+            <p>
+                Check the current availability of our wash bays.
+            </p>
+
+        </div>
+
+        <div class="bays">
+
+            <div class="bay">
+
+                <div class="car">🚗</div>
+
+                <h2>Bay 1</h2>
+
+                <br>
+
+                <span class="status free">
+                    ● FREE
+                </span>
+
+            </div>
+
+            <div class="bay">
+
+                <div class="car">🚙</div>
+
+                <h2>Bay 2</h2>
+
+                <br>
+
+                <span class="status busy">
+                    ● BUSY
+                </span>
+
+            </div>
+
+            <div class="bay">
+
+                <div class="car">🚕</div>
+
+                <h2>Bay 3</h2>
+
+                <br>
+
+                <span class="status free">
+                    ● FREE
+                </span>
+
+            </div>
+
+            <div class="bay">
+
+                <div class="car">🚘</div>
+
+                <h2>Bay 4</h2>
+
+                <br>
+
+                <span class="status free">
+                    ● FREE
+                </span>
+
+            </div>
+
+            <div class="bay">
+
+                <div class="car">🚙</div>
+
+                <h2>Bay 5</h2>
+
+                <br>
+
+                <span class="status free">
+                    ● FREE
+                </span>
+
+            </div>
+
+            <div class="bay">
+
+                <div class="car">🚕</div>
+
+                <h2>Bay 6</h2>
+
+                <br>
+
+                <span class="status free">
+                    ● FREE
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="live">
+
+            <span class="dot"></span>
+
+            Live system simulation • Updated automatically
+
+        </div>
+
+    </div>
+    <script src="live bay.js"></script>
+
+</body>
+</html>
