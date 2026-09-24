@@ -163,31 +163,33 @@
     <p>Deluxe Wash - R200</p>
   </div>
 </div>
-
 <script>
-// DYNAMIC ADMIN - NO SFUNDO HARDCODE
-let allBookings = JSON.parse(localStorage.getItem("carwashBookings") || "{}");
-let tbody = document.getElementById("bookingTableBody");
-let count = document.getElementById("totalCount");
+document.addEventListener("DOMContentLoaded", function(){
+  let allBookings = JSON.parse(localStorage.getItem("carwashBookings") || "{}");
+  let tbody = document.getElementById("bookingTableBody");
+  let countEl = document.getElementById("totalCount");
 
-count.innerText = Object.keys(allBookings).length;
+  if(!tbody ||!countEl) return;
 
-if(Object.keys(allBookings).length === 0){
-  tbody.innerHTML = `<tr><td colspan="4">No bookings yet</td></tr>`;
-} else {
-  let rows = "";
-  for(let user in allBookings){
-    let b = allBookings[user];
-    rows += `<tr>
-      <td>${user}</td>
-      <td>${b.service}</td>
-      <td>${b.date} ${b.time}</td>
-      <td><span class="status">Confirmed</span></td>
-    </tr>`;
+  countEl.innerText = Object.keys(allBookings).length;
+
+  if(Object.keys(allBookings).length === 0){
+    tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;padding:20px;">No bookings yet - book as thando to test</td></tr>`;
+  } else {
+    let rows = "";
+    for(let user in allBookings){
+      let b = allBookings[user];
+      rows += `<tr>
+        <td>${user}</td>
+        <td>${b.service}</td>
+        <td>${b.date} ${b.time}</td>
+        <td><span style="background:#22c55e;color:white;padding:4px 10px;border-radius:12px;">Confirmed</span></td>
+      </tr>`;
+    }
+    tbody.innerHTML = rows;
   }
-  tbody.innerHTML = rows;
-}
+});
 </script>
-
 </body>
+
 </html>
