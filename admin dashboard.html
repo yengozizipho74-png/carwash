@@ -118,143 +118,76 @@
     </style>
 
 </head>
-
 <body>
 
-    <div class="sidebar">
+<div class="sidebar">
+  <div class="logo">Shine<span>Wash</span></div>
+  <div class="menu">
+    <a class="active" href="admin-dashboard.html">📊 Dashboard</a>
+    <a href="#bookings">📋 Manage Bookings</a>
+    <a href="#services">💖 Manage Services</a>
+    <a href="bay-status.html">🚗 Live Bay Status</a>
+    <a href="index.html">🚪 Logout</a>
+  </div>
+</div>
 
-        <div class="logo">
-            Shine<span>Wash</span>
-        </div>
+<div class="main">
+  <h1>Admin Dashboard 👑</h1>
+  <p>Welcome Admin - All User Bookings</p>
 
-        <div class="menu">
+  <div class="card">
+    <h3>Total Bookings: <span id="totalCount">0</span></h3>
+  </div>
 
-            <a class="active" href="admin-dashboard.html">
-                📊 Dashboard
-            </a>
+  <div class="card" id="bookings">
+    <h2>📋 Manage Bookings</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Service</th>
+          <th>Date & Time</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="bookingTableBody">
+        <tr><td colspan="4">Loading bookings...</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-            <a href="#">
-                📋 Manage Bookings
-            </a>
+  <div class="card" id="services">
+    <h2>💖 Manage Services</h2>
+    <p>Basic Wash - R50</p>
+    <p>Premium Wash - R120</p>
+    <p>Deluxe Wash - R200</p>
+  </div>
+</div>
 
-            <a href="#">
-                🧼 Manage Services
-            </a>
+<script>
+// DYNAMIC ADMIN - NO SFUNDO HARDCODE
+let allBookings = JSON.parse(localStorage.getItem("carwashBookings") || "{}");
+let tbody = document.getElementById("bookingTableBody");
+let count = document.getElementById("totalCount");
 
-            <a href="bay-status.html">
-                🚘 Live Bay Status
-            </a>
+count.innerText = Object.keys(allBookings).length;
 
-            <a href="index.html">
-                🚪 Logout
-            </a>
-
-        </div>
-
-    </div>
-
-    <div class="main">
-
-        <div class="top">
-
-            <div>
-
-                <h1>Admin Dashboard</h1>
-
-                <p>
-                    Manage your car wash operations.
-                </p>
-
-            </div>
-
-            <strong>
-                Admin 👤
-            </strong>
-
-        </div>
-
-        <div class="cards">
-
-            <div class="card">
-                <p>Total Bookings</p>
-                <h2>128</h2>
-            </div>
-
-            <div class="card">
-                <p>Today's Bookings</p>
-                <h2>24</h2>
-            </div>
-
-            <div class="card">
-                <p>Available Bays</p>
-                <h2>3</h2>
-            </div>
-
-            <div class="card">
-                <p>Customers</p>
-                <h2>86</h2>
-            </div>
-
-        </div>
-
-        <div class="table-container">
-
-            <h2>Recent Bookings</h2>
-
-            <br>
-
-            <table>
-
-                <tr>
-                    <th>Customer</th>
-                    <th>Service</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Status</th>
-                </tr>
-
-                <tr>
-                    <td>Sfundo Makaza</td>
-                    <td>Premium Wash</td>
-                    <td>25 Sep</td>
-                    <td>14:00</td>
-                    <td>
-                        <span class="status">
-                            Confirmed
-                        </span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>John Smith</td>
-                    <td>Basic Wash</td>
-                    <td>25 Sep</td>
-                    <td>15:00</td>
-                    <td>
-                        <span class="status">
-                            Confirmed
-                        </span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Thandi M</td>
-                    <td>Full Detail</td>
-                    <td>25 Sep</td>
-                    <td>16:00</td>
-                    <td>
-                        <span class="status">
-                            Confirmed
-                        </span>
-                    </td>
-                </tr>
-
-            </table>
-
-        </div>
-
-    </div>
-    <script src="admin"></script>
+if(Object.keys(allBookings).length === 0){
+  tbody.innerHTML = `<tr><td colspan="4">No bookings yet</td></tr>`;
+} else {
+  let rows = "";
+  for(let user in allBookings){
+    let b = allBookings[user];
+    rows += `<tr>
+      <td>${user}</td>
+      <td>${b.service}</td>
+      <td>${b.date} ${b.time}</td>
+      <td><span class="status">Confirmed</span></td>
+    </tr>`;
+  }
+  tbody.innerHTML = rows;
+}
+</script>
 
 </body>
 </html>
