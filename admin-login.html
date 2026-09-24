@@ -1,38 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Login - ShineWash</title>
 <style>
-body{font-family:Arial;background:#0f172a;display:flex;justify-content:center;align-items:center;height:100vh;margin:0}
-.card{background:white;padding:30px;border-radius:12px;width:320px;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,0.3)}
-input{width:90%;padding:12px;margin:10px 0;border-radius:6px;border:1px solid #ccc}
-button{width:95%;padding:12px;background:#1e40af;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:bold;font-size:16px}
-button:hover{background:#1e3a8a}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{
+  background: radial-gradient(circle at top, #1e40af 0%, #0f172a 70%);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+.card{
+  background:white;
+  width:100%;
+  max-width:450px;
+  padding:40px 35px;
+  border-radius:20px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+  text-align:center;
+}
+.logo-icon{
+  font-size:50px;
+  margin-bottom:10px;
+}
+h1{font-size:28px;margin-bottom:8px;color:#0f172a}
+h1 span{color:#2563eb}
+p.subtitle{color:#64748b;margin-bottom:30px;font-size:16px}
+input{
+  width:100%;
+  padding:16px 18px;
+  margin:12px 0;
+  border:2px solid #e2e8f0;
+  border-radius:12px;
+  font-size:16px;
+  outline:none;
+  transition:0.3s;
+}
+input:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.15)}
+button{
+  width:100%;
+  padding:16px;
+  margin-top:20px;
+  background:#2563eb;
+  color:white;
+  border:none;
+  border-radius:12px;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+button:hover{background:#1d4ed8;transform:translateY(-2px)}
+.link{margin-top:20px;display:block;color:#2563eb;text-decoration:none;font-weight:600}
+#msg{margin-top:15px;font-weight:bold}
+.badge{
+  background:#dbeafe;
+  color:#1e40af;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:bold;
+  display:inline-block;
+  margin-bottom:20px;
+}
 </style>
 </head>
 <body>
+
 <div class="card">
-<h2>👑 ShineWash Admin</h2>
-<input id="email" type="email" placeholder="admin@shinewash.com" value="admin@shinewash.com">
-<input id="password" type="password" placeholder="Password" value="admin123">
-<button onclick="loginAdmin()">Login as Admin</button>
-<p><a href="login.html">← Back to User Login</a></p>
-<p id="msg" style="color:red;"></p>
+  <div class="logo-icon">👑</div>
+  <h1>Shine<span>Wash</span> Admin</h1>
+  <div class="badge">SECURE ADMIN ACCESS</div>
+  <p class="subtitle">Welcome back! Please login to continue</p>
+  
+  <input id="email" type="email" placeholder="Admin Email" value="admin@shinewash.com">
+  <input id="password" type="password" placeholder="Password" value="admin123">
+  
+  <button onclick="loginAdmin()">Login as Admin →</button>
+  
+  <a class="link" href="login.html">← Back to User Login</a>
+  <p id="msg"></p>
 </div>
 
 <script>
-// ADMIN LOGIN JAVASCRIPT - THIS IS THE JAVA YOU ASKED FOR
 function loginAdmin(){
   let email = document.getElementById("email").value.trim();
   let pass = document.getElementById("password").value.trim();
   let msg = document.getElementById("msg");
 
   if(email === "admin@shinewash.com" && pass === "admin123"){
-    localStorage.setItem("currentUser", "Admin");
-    localStorage.setItem("userRole", "admin");
-    window.location.href = "admin-dashboard.html";
+    localStorage.setItem("currentUser","Admin");
+    localStorage.setItem("userRole","admin");
+    msg.style.color = "#22c55e";
+    msg.innerText = "Success! Redirecting...";
+    setTimeout(()=>{ window.location.href="admin-dashboard.html"; }, 800);
   } else {
-    msg.innerText = "Wrong! Use: admin@shinewash.com / admin123";
+    msg.style.color = "#ef4444";
+    msg.innerText = "Wrong details! Use admin@shinewash.com / admin123";
   }
 }
 </script>
